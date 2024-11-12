@@ -1,5 +1,11 @@
 import { NgIf } from '@angular/common';
-import { Component, inject, Inject } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  inject,
+  Inject,
+  OnInit,
+} from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -20,7 +26,7 @@ import { ServiceService } from '../../shared/services/service.service';
   templateUrl: './new-service.component.html',
   styleUrl: './new-service.component.css',
 })
-export class NewServiceComponent {
+export class NewServiceComponent implements OnInit, AfterViewInit {
   private toast = inject(ToastrService);
   private http = inject(HttpResquests).request;
   private subscription: Subscription = new Subscription();
@@ -28,6 +34,8 @@ export class NewServiceComponent {
   formGroup!: FormGroup;
 
   isModalVisible: boolean = false;
+
+  is_direct: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -41,7 +49,27 @@ export class NewServiceComponent {
       date: new FormControl('', [Validators.required]),
       indications_service: new FormControl('', [Validators.required]),
       indications_driver: new FormControl('', [Validators.required]),
+      pickup_date: new FormControl(''),
+      range: new FormControl(''),
+      direct_assigment: new FormControl(false),
     });
+  }
+
+  ngOnInit(): void {
+    this.getFormChanges('direct_assigment', (value: any) => {
+      this.is_direct = value;
+    });
+  }
+
+  ngAfterViewInit(): void {}
+
+  getFormChanges(control: string, fn: any) {
+    const obs = this.formGroup.get(control);
+    if (obs != null) {
+      obs.valueChanges.subscribe({
+        next: fn,
+      });
+    }
   }
 
   openModal() {

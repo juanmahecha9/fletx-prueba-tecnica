@@ -51,19 +51,50 @@
                     cargue</label>
                 <label for="countries_disabled" class="block mb-2 text-sm font-medium text-gray-900 ">¿Tiene fecha y
                     hora?</label>
-                <select id="date"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                    formControlName="date">
-                    <option selected value="" disabled>Seleccione</option>
-                    <option value="Si">Si</option>
-                    <option value="no">No</option>
-                </select>
-                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 ">Indeicaciones
+                <div class="grid grid-cols-3 gap-4">
+                    <select id="date"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        formControlName="date">
+                        <option selected value="" disabled>Seleccione</option>
+                        <option value="Si">Si</option>
+                        <option value="no">No</option>
+                    </select>
+                    <input type="date" formControlName="pickup_date"
+                        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 ">
+                    <select id="range"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        formControlName="range">
+                        <option selected value="" disabled>Franja horaria</option>
+                        <option value="m">Mañana</option>
+                        <option value="t">Tarde</option>
+                        <option value="n">Noche</option>
+                    </select>
+                </div>
+                <div class="flex items-center mb-4">
+                    <input id="default-checkbox" type="checkbox" value=""
+                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        formControlName="direct_assigment">
+                    <label for="default-checkbox"
+                        class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Asignación directa</label>
+                </div>
+
+                @if (is_direct) {
+                <div>
+                    <label for=" message" class="block mb-2 text-sm font-medium text-gray-900 ">Placa de
+                        vehiculos</label>
+                    <input id="message" rows="4"
+                        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                        placeholder="" formControlName="indications_service">
+                </div>
+                }
+
+
+                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 ">Indicaciones
                     del servicio</label>
                 <textarea id="message" rows="4"
                     class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
                     placeholder="" formControlName="indications_service"></textarea>
-                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 ">Indeicaciones
+                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 ">Indicaciones
                     al conductor</label>
                 <textarea id="message" rows="4"
                     class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
