@@ -1,0 +1,30 @@
+<div class="flow-root bg-white p-2">
+    <h1 class="float-left text-xl font-semibold text-black p-2 ml-2">TruckBoard</h1>
+    <div class="float-right">
+        <div class="grid grid-cols-1">
+
+            <div class="profile">
+                <div class="flex gap-3">
+                    <div class="rounded-full p-2" [innerHTML]="NOTIFICATION">
+                    </div>
+                    <div class="rounded-full" [innerHTML]="PROFILE_IMAGE">
+                    </div>
+                    <div>
+                        <strong>{{info.name}}</strong>
+                        <br>
+                        <span style="color: #00307F;">
+                            {{info.rol}}
+                        </span>
+                    </div>
+                    <div class="p-4">
+                        <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 1.44446L7 7.13335L13 1.44446" stroke="#00307F" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

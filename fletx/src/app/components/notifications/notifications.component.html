@@ -1,0 +1,48 @@
+<div class="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8">
+    <div class="flex items-center justify-between mb-4">
+        <h5 class="text-xl font-bold leading-none text-gray-900 ">Notificaciones</h5>
+    </div>
+    <div class="flow-root">
+        <ul role="list" class="divide-y divide-gray-200">
+            @for (item of data; track $index) {
+            <li class="py-3 sm:py-4">
+                <div class="flex gap-2">
+                    <div>
+                        <svg width="35" height="35" viewBox="10 5 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g filter="url(#filter0_d_1_9127)">
+                                <path
+                                    d="M27.7761 26.1436C31.4436 26.1436 34.4167 23.3523 34.4167 19.9092C34.4167 16.466 31.4436 13.6748 27.7761 13.6748C24.1085 13.6748 21.1354 16.466 21.1354 19.9092C21.1354 23.3523 24.1085 26.1436 27.7761 26.1436Z"
+                                    stroke="#FF3C3A" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M27.7761 16.4457V19.9092L29.9896 21.9873" stroke="#FF3C3A" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </g>
+                            <defs>
+                                <filter id="filter0_d_1_9127" x="0" y="0" width="57" height="56"
+                                    filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                    <feColorMatrix in="SourceAlpha" type="matrix"
+                                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                    <feOffset dy="0" />
+                                    <feGaussianBlur stdDeviation="0" />
+                                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0" />
+                                    <feBlend mode="normal" in2="BackgroundImageFix"
+                                        result="effect1_dropShadow_1_9127" />
+                                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_9127"
+                                        result="shape" />
+                                </filter>
+                            </defs>
+                        </svg>
+                    </div>
+                    <p [innerHTML]="item.message" class="text-sm" style="font-size: 12px;"></p>
+                </div>
+                <div class="container mx-0 min-w-full flex flex-col items-end">
+                    <button class="bg-red-600 text-white rounded-full w-32" style="font-size: 10px;">
+                        {{item.btn}}
+                    </button>
+                </div>
+            </li>
+            }
+        </ul>
+    </div>
+</div>

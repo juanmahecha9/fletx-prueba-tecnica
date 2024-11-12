@@ -1,0 +1,48 @@
+<button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar"
+    type="button"
+    class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-white focus:outline-none focus:ring-2 focus:ring-gray-200  ">
+    <span class="sr-only">Open sidebar</span>
+    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path clip-rule="evenodd" fill-rule="evenodd"
+            d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
+        </path>
+    </svg>
+</button>
+
+<aside id="default-sidebar"
+    class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
+    aria-label="Sidebar">
+    <div class="h-full px-3 py-4 overflow-y-auto bg-white">
+        <div class="flex justify-center items-center my-2">
+            <svg width="128" height="36" viewBox="0 0 128 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3.31801 19.877L0 35.52H7.47866L9.59687 25.3867H20.5512L21.7495 19.877H3.31801Z"
+                    fill="#0C142E" />
+                <path
+                    d="M31.2447 29.9809L35.5244 9.77759H28.9224H27.8989H5.45981L4.2832 15.3244L26.7285 15.3012L22.4395 35.5199H41.2513L42.4434 29.9809H31.2447Z"
+                    fill="#0C142E" />
+                <path d="M111.397 15.3245C111.397 15.3245 105.397 0.279892 105.346 0H96.3086L102.853 15.3245H111.397Z"
+                    fill="#FF3C3A" />
+                <path
+                    d="M115.895 14.3209L128 0H118.762C118.663 0.154637 115.615 3.96798 113.055 7.17359L115.895 14.3209Z"
+                    fill="#FF3C3A" />
+                <path d="M110.299 19.877H101.534L88.5312 35.5262H97.992C98.1065 35.3391 110.299 19.877 110.299 19.877Z"
+                    fill="#FF3C3A" />
+                <path
+                    d="M109.281 28.5458C110.58 31.835 111.979 35.3622 112.012 35.5184H121.055L115.025 21.2393L109.281 28.5458Z"
+                    fill="#FF3C3A" />
+                <path
+                    d="M45.2959 35.5199H65.0694L66.2368 30.0025H53.7765L54.7536 25.4052L65.977 25.4299L67.1691 19.9016L55.9457 19.8769L56.9228 15.3074H68.1493L69.3151 9.77759H50.8527L45.2959 35.5199Z"
+                    fill="#0C142E" />
+                <path d="M93.0005 15.3074L94.1926 9.77759H73.3708L72.1787 15.3074H93.0005Z" fill="#0C142E" />
+                <path d="M77.9813 19.877L74.6787 35.52H82.2981L85.6006 19.877H77.9813Z" fill="#0C142E" />
+            </svg>
+        </div>
+        <div class="mt-4">
+            <ul class="space-y-2 font-medium">
+                @for (item of options; track $index) {
+                <app-item-list [title]="item.title" [image]="item.icon" [subcategorie]="item.subcategories" />
+                }
+            </ul>
+        </div>
+    </div>
+</aside>

@@ -1,0 +1,37 @@
+<div class="...">
+    <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 my-2">
+        @for (item of cards; track $index) {
+        <app-card [image]="item.color" [amount]="item.data" [title]="item.name" [accessKey]="$index" />
+        }
+    </div>
+
+    <!--Para el mapa y las notificaciones-->
+    <div class="flex w-full gap-2">
+        <div class="w-full lg:w-7/12 p-2">
+            <div class="filters w-full">
+                <form class=" flex gap-2 my-2" style="width: 80%;">
+                    <select id="vehicle"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <option selected disabled>Tipo de vehiculo</option>
+                    </select>
+                    <select id="settings"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <option selected disabled>Configuración</option>
+                    </select>
+                    <input id="status"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        placeholder="Estado">
+                </form>
+            </div>
+            <app-map />
+        </div>
+        <div class="w-full lg:w-5/12 p-2">
+            <app-notifications />
+        </div>
+    </div>
+
+    <app-new-service />
+    <div class="grid grid-cols-1">
+        <app-track />
+    </div>
+</div>

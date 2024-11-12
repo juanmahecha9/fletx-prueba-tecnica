@@ -1,0 +1,83 @@
+<!-- Botón "Crear servicio" -->
+<button class="bg-blue-700 text-white font-semibold py-2 px-4 rounded mb-4" (click)="openModal()">
+    Crear servicio
+</button>
+
+
+@if(isModalVisible){
+<div class="fixed inset-0 z-50 flex justify-end">
+    <!-- Filtro oscuro de fondo -->
+    <div class="absolute inset-0 bg-black opacity-50" (click)="closeModal()"></div>
+
+    <!-- Contenido del modal -->
+    <div class="relative w-full sm:w-1/3 h-full bg-gray-100  shadow-lg overflow-y-auto">
+        <div class="bg-white p-4">
+            <h2 class="text-2xl font-semibold mb-4">Crear nuevo servicio</h2>
+        </div>
+
+        <div class="p-4">
+            <form class="max-w-sm mx-auto gap-4 grid grid-cols-1" [formGroup]="formGroup">
+                <select id="client"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    formControlName="client">
+                    <option selected value="" disabled>Seleccione un cliente</option>
+                    <option value="C-1">Cliente 1</option>
+                    <option value="C-2">Cliente 2</option>
+                    <option value="C-3">Cliente 3</option>
+                    <option value="C-4">cliente 4</option>
+                </select>
+                <select id="business"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    formControlName="business">
+                    <option selected value="" disabled>Negocio</option>
+                    <option value="N-1">Negocio 1</option>
+                    <option value="N-2">Negocio 2</option>
+                    <option value="N-3">Negocio 3</option>
+                    <option value="N-4">Negocio 4</option>
+                </select>
+                <input type="text" id="count-vehicles"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    placeholder="Número Vehiculos" formControlName="vehicle">
+                <select id="path"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    formControlName="path">
+                    <option selected value="" disabled>Ruta (planta de origen - planta destino)</option>
+                    <option value="P-1">Ruta 1</option>
+                    <option value="P-2">Ruta 2</option>
+                    <option value="P-3">Ruta 3</option>
+                    <option value="P-4">Ruta 4</option>
+                </select>
+                <label for="countries_disabled" class="block mb-2 text-sm font-medium text-gray-900 ">Fecha de
+                    cargue</label>
+                <label for="countries_disabled" class="block mb-2 text-sm font-medium text-gray-900 ">¿Tiene fecha y
+                    hora?</label>
+                <select id="date"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    formControlName="date">
+                    <option selected value="" disabled>Seleccione</option>
+                    <option value="Si">Si</option>
+                    <option value="no">No</option>
+                </select>
+                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 ">Indeicaciones
+                    del servicio</label>
+                <textarea id="message" rows="4"
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                    placeholder="" formControlName="indications_service"></textarea>
+                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 ">Indeicaciones
+                    al conductor</label>
+                <textarea id="message" rows="4"
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 "
+                    placeholder="" formControlName="indications_driver"></textarea>
+            </form>
+        </div>
+        <div class="flex justify-end gap-4">
+            <button class="bg-gray-300 text-black font-semibold py-2 px-4 rounded mb-4" (click)="closeModal()">
+                Cancelar
+            </button>
+            <button (click)="submit()" class="bg-red-500 text-white font-semibold py-2 px-4 rounded mb-4">
+                Crear servicio
+            </button>
+        </div>
+    </div>
+</div>
+}
